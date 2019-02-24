@@ -2,8 +2,13 @@
 
 Stack:
 
-* `devise` with User
+* Devise with User
+* React Router
+* Redux
 
-* `react-router`
+## Usage
 
-* `redux`
+```
+$ bundle install && yarn install
+$ foreman s
+```
