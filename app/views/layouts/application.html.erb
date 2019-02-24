@@ -6,7 +6,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag "application" %>
-    <%= javascript_pack_tag "application" %>
+    <% unless %w(login sign_up).include? request.env['PATH_INFO'].gsub(/\//, '') %>
+      <%= javascript_pack_tag "application" %>
+    <% end %>
   </head>
 
   <body>
