@@ -3,5 +3,7 @@ class PagesController < ApplicationController
 
   def root; end
 
-  def landing; end
+  def landing
+    @properties = Property.all
+  end
 end

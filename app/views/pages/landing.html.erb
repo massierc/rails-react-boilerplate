@@ -6,3 +6,9 @@
   <%= link_to 'Log In', new_user_session_path %>
   <%= link_to 'Sign Up', new_user_registration_path %>
 <% end %>
+
+<ul>
+  <% @properties.each do |property| %>
+    <li><%= property.name %></li>
+  <% end %>
+</ul>
