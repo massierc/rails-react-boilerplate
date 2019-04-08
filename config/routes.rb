@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#root"
+  root to: "pages#landing"
   devise_for :users,
     path: '',
     path_names: {
