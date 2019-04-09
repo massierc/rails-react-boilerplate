@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 
-export function normalize(raw) {
+export function makeImmutable(raw) {
   return raw.json().then(data => fromJS(data));
 }
 

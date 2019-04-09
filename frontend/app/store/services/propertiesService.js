@@ -1,4 +1,4 @@
-import { normalize } from '../../utils';
+import { makeImmutable } from '../../utils';
 
 function fetchProperties(params) {
   return fetch(
@@ -7,7 +7,17 @@ function fetchProperties(params) {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  ).then(normalize);
+  ).then(makeImmutable);
 }
 
-export default { fetchProperties }
+function fetchProperty(id) {
+  return fetch(
+    `/api/v1/property/${id}`,
+    {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  ).then(makeImmutable);
+}
+
+export default { fetchProperties, fetchProperty };
