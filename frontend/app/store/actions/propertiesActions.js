@@ -1,13 +1,11 @@
-import constants from '../constants';
-import services from '../services';
+import { propertiesConstants } from '../constants';
+import { propertiesService } from '../services';
 
 const {
   FETCH_PROPERTIES_STARTED,
   FETCH_PROPERTIES_SUCCESS,
   FETCH_PROPERTIES_FAILURE,
-} = constants.propertiesConstants;
-
-const { propertiesService } = services;
+} = propertiesConstants;
 
 const fetchPropertiesStarted = ({ type: FETCH_PROPERTIES_STARTED });
 

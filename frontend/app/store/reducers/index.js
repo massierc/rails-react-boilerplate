@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux-immutable';
+
 import appReducer from './appReducer';
 import propertiesReducer from './propertiesReducer';
 

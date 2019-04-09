@@ -1,3 +1,1 @@
-import propertiesService from './propertiesService';
-
-export default { propertiesService };
+export { default as propertiesService } from './propertiesService';

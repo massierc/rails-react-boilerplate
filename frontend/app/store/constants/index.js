@@ -1,3 +1,1 @@
-import propertiesConstants from './propertiesConstants';
-
-export default { propertiesConstants };
+export { default as propertiesConstants } from './propertiesConstants';

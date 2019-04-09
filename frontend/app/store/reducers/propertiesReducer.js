@@ -1,5 +1,5 @@
 import { Map, List } from 'immutable';
-import constants from '../constants';
+import { propertiesConstants } from '../constants';
 
 const initialState = Map({
   properties: List(),
@@ -9,7 +9,7 @@ const {
   FETCH_PROPERTIES_STARTED,
   FETCH_PROPERTIES_SUCCESS,
   FETCH_PROPERTIES_FAILURE,
-} = constants.propertiesConstants;
+} = propertiesConstants;
 
 const propertiesReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -1,3 +1,1 @@
-import propertiesActions from './propertiesActions';
-
-export default { propertiesActions };
+export { default as propertiesActions } from './propertiesActions';
