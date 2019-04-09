@@ -1,35 +1,16 @@
 import { propertiesConstants } from '../constants';
 import { propertiesService } from '../services';
+import { getActions } from '../../utils';
 
-const {
-  FETCH_PROPERTIES_STARTED,
-  FETCH_PROPERTIES_SUCCESS,
-  FETCH_PROPERTIES_FAILURE,
-} = propertiesConstants;
-
-const fetchPropertiesStarted = ({ type: FETCH_PROPERTIES_STARTED });
-
-function fetchPropertiesSuccess(data) {
-  return ({
-    type: FETCH_PROPERTIES_SUCCESS,
-    payload: data,
-  });
-}
-
-function fetchPropertiesFailure(err) {
-  return ({
-    type: FETCH_PROPERTIES_FAILURE,
-    payload: err,
-  });
-}
+const { start, success, failure } = getActions('FETCH_PROPERTIES', propertiesConstants);
 
 function fetchProperties(params) {
   return (dispatch) => {
-    dispatch(fetchPropertiesStarted);
+    dispatch(start);
     propertiesService
       .fetchProperties(params)
-      .then(data => dispatch(fetchPropertiesSuccess(data)))
-      .catch(err => dispatch(fetchPropertiesFailure(err)));
+      .then(data => dispatch(success(data)))
+      .catch(err => dispatch(failure(err)));
   };
 }
 

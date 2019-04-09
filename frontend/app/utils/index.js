@@ -4,6 +4,18 @@ export function normalize(raw) {
   return raw.json().then(data => fromJS(data));
 }
 
-export default {
-  normalize,
-};
+export function getActions(type, constants) {
+  return {
+    start: {
+      type: constants[`${type}_STARTED`],
+    },
+    success: data => ({
+      type: constants[`${type}_SUCCESS`],
+      payload: data,
+    }),
+    failure: err => ({
+      type: constants[`${type}_FAILURE`],
+      payload: err,
+    }),
+  };
+}
