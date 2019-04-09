@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import actions from '../../store/actions';
 
-const Landing = () => <div>Landing (react)</div>;
+const { propertiesActions } = actions;
 
-export default Landing;
+function Properties({ fetchProperties, properties }) {
+  useEffect(() => fetchProperties(), []);
+
+  return (<div>Properties (react)</div>);
+}
+
+const mapStateToProps = state => ({
+  properties: state.getIn(['propertiesReducer', 'properties']),
+});
+
+export default connect(mapStateToProps, propertiesActions)(Properties);

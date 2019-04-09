@@ -9,7 +9,7 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Properties} />
+        <Route exact path="/properties" component={Properties} />
       </Switch>
     </BrowserRouter>
   </Provider>

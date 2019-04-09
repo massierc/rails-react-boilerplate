@@ -1,11 +1,13 @@
-const fetchProperties = params => fetch(
-  `${process.env.REACT_APP_MOCK_SERVER_URL}/properties`,
-  {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-).then(data => console.log(data));
+import { normalize } from '../../utils';
 
-const propertiesService = { fetchProperties };
+function fetchProperties(params) {
+  return fetch(
+    '/api/v1/properties',
+    {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  ).then(normalize);
+}
 
-export default propertiesService;
+export default { fetchProperties }

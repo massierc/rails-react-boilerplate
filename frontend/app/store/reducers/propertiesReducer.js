@@ -17,11 +17,11 @@ const propertiesReducer = (state = initialState, action) => {
       return state.set('loading', true);
     case FETCH_PROPERTIES_SUCCESS:
       return state
-        .set('properties', action.payload.get('properties'))
+        .set('properties', action.payload)
         .set('loading', false);
     case FETCH_PROPERTIES_FAILURE:
       return state
-        .set('error', action.payload.get('error'))
+        .set('error', action.payload)
         .set('loading', false);
     default:
       return state;
