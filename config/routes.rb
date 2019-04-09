@@ -8,7 +8,7 @@ Rails.application.routes.draw do
                sign_out: 'logout'
              }
 
-  resources :properties, only: %i[index], to: 'pages#root'
+  resources :properties, only: %i[index show], to: 'pages#react'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
