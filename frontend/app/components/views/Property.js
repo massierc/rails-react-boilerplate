@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 import { propertiesActions } from '../../store/actions';
+import { findIn } from '../../utils';
 
-function Property({
-  fetchProperty, property, id,
-}) {
-  useEffect(() => {
-    fetchProperty(id);
-  }, []);
+function Property({ fetchProperty, property, id }) {
+  useEffect(() => fetchProperty(id), []);
 
   return (
     <div>
@@ -33,14 +30,9 @@ Property.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
-  const index = state
-    .getIn(['propertiesReducer', 'properties'])
-    .findIndex(el => el.get('id') === parseInt(id, 10));
+  const property = findIn(state.getIn(['propertiesReducer', 'properties']), id);
 
-  return ({
-    id,
-    property: state.getIn(['propertiesReducer', 'properties', index]),
-  });
+  return ({ id, property });
 };
 
 export default connect(mapStateToProps, propertiesActions)(Property);

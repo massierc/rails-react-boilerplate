@@ -26,6 +26,6 @@ export function updated(list, el) {
 }
 
 export function findIn(list, id) {
-  const index = list.findIndex(item => item.get('id') === id);
-  return list[index];
+  const index = list.findIndex(item => item.get('id') === parseInt(id, 10));
+  return list.get(index);
 }

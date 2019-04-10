@@ -1,6 +1,6 @@
 import { makeImmutable } from '../../utils';
 
-function fetchProperties(params) {
+function fetchProperties() {
   return fetch(
     '/api/v1/properties',
     {
