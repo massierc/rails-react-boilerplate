@@ -35,5 +35,7 @@ module Ibicasa
       g.helper          false
       g.channel         assets: false
     end
+
+    config.rails_routes = %w[root login sign_up]
   end
 end
