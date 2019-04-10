@@ -19,3 +19,13 @@ export function getActions(type, constants) {
     }),
   };
 }
+
+export function updated(list, el) {
+  const id = list.findIndex(item => item.get('id') === el.get('id'));
+  return id < 0 ? list.push(el) : list.set('id', el);
+}
+
+export function findIn(list, id) {
+  const index = list.findIndex(item => item.get('id') === id);
+  return list[index];
+}

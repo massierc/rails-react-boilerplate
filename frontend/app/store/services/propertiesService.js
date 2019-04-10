@@ -12,7 +12,7 @@ function fetchProperties(params) {
 
 function fetchProperty(id) {
   return fetch(
-    `/api/v1/property/${id}`,
+    `/api/v1/properties/${id}`,
     {
       Accept: 'application/json',
       'Content-Type': 'application/json',

@@ -5,8 +5,8 @@ class Api::V1::PropertiesController < ActionController::Base
   end
 
   def show
-    property = Propery.find(params[:id])
-    render json: property
+    property = Property.find(params[:id])
+    render json: property, include: { user: { only: %i[first_name last_name] } }
   end
 
   def create
