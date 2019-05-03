@@ -1,5 +1,5 @@
 {
-  "name": "ibicasa",
+  "name": "rails-react-boilerplate",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
