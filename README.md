@@ -1,10 +1,11 @@
 # Rails + React boilerplate (with Webpacker)
 
-Stack:
+This boilerplate includes
 
 * Devise with User
 * React Router
 * Redux
+* Sample `Property` model
 
 ## Usage
 
