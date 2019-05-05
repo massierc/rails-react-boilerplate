@@ -5,8 +5,8 @@ import { Map } from 'immutable';
 import { propertiesActions } from '../../store/actions';
 import { findIn } from '../../utils';
 
-function Property({ fetchProperty, property, id }) {
-  useEffect(() => fetchProperty(id), []);
+function Property({ getProperty, property, id }) {
+  useEffect(() => getProperty(id), []);
 
   return (
     <div>
@@ -19,7 +19,7 @@ function Property({ fetchProperty, property, id }) {
 }
 
 Property.propTypes = {
-  fetchProperty: PropTypes.func.isRequired,
+  getProperty: PropTypes.func.isRequired,
   property: PropTypes.instanceOf(Map),
   id: PropTypes.string.isRequired,
 };

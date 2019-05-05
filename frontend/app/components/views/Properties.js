@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { List } from 'immutable';
 import { propertiesActions } from '../../store/actions';
 
-function Properties({ fetchProperties, properties }) {
-  useEffect(() => fetchProperties(), []);
+function Properties({ getProperties, properties }) {
+  useEffect(() => getProperties(), []);
 
   return (
     <div>
@@ -25,7 +25,7 @@ function Properties({ fetchProperties, properties }) {
 }
 
 Properties.propTypes = {
-  fetchProperties: PropTypes.func.isRequired,
+  getProperties: PropTypes.func.isRequired,
   properties: PropTypes.instanceOf(List).isRequired,
 };
 

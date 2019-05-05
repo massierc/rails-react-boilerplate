@@ -9,39 +9,49 @@ const initialState = Map({
 });
 
 const {
-  FETCH_PROPERTIES_STARTED,
-  FETCH_PROPERTIES_SUCCESS,
-  FETCH_PROPERTIES_FAILURE,
+  GET_PROPERTIES_STARTED,
+  GET_PROPERTIES_SUCCESS,
+  GET_PROPERTIES_FAILURE,
 
-  FETCH_PROPERTY_STARTED,
-  FETCH_PROPERTY_SUCCESS,
-  FETCH_PROPERTY_FAILURE,
+  GET_PROPERTY_STARTED,
+  GET_PROPERTY_SUCCESS,
+  GET_PROPERTY_FAILURE,
+
+  POST_PROPERTY_STARTED,
+  POST_PROPERTY_SUCCESS,
+  POST_PROPERTY_FAILURE,
 } = propertiesConstants;
 
 const propertiesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PROPERTIES_STARTED:
-    case FETCH_PROPERTY_STARTED:
+    case GET_PROPERTIES_STARTED:
+    case GET_PROPERTY_STARTED:
+    case POST_PROPERTY_STARTED:
       return state.set('loading', true);
 
-    case FETCH_PROPERTY_FAILURE:
-    case FETCH_PROPERTIES_FAILURE:
+    case GET_PROPERTIES_FAILURE:
+    case GET_PROPERTY_FAILURE:
+    case POST_PROPERTY_FAILURE:
       return state
         .set('error', action.payload)
         .set('loading', false);
 
-    case FETCH_PROPERTIES_SUCCESS:
+    case GET_PROPERTIES_SUCCESS:
       return state
         .set('properties', action.payload)
         .set('loading', false);
 
-    case FETCH_PROPERTY_SUCCESS:
+    case GET_PROPERTY_SUCCESS:
       return state
         .set(
           'properties',
           updated(state.get('properties'), action.payload),
         )
         .set('loading', false);
+
+    case POST_PROPERTY_SUCCESS:
+    // TODO
+      return state;
 
     default:
       return state;

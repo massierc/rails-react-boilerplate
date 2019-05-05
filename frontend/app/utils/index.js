@@ -20,6 +20,17 @@ export function getActions(type, constants) {
   };
 }
 
+export function createAction({ action, constants, service }) {
+  const { start, success, failure } = getActions(action, constants);
+
+  return (dispatch) => {
+    dispatch(start);
+    service
+      .then(data => dispatch(success(data)))
+      .catch(err => dispatch(failure(err)));
+  };
+}
+
 export function updated(list, el) {
   const id = list.findIndex(item => item.get('id') === el.get('id'));
   return id < 0 ? list.push(el) : list.set(id, el);

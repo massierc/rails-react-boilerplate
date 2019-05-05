@@ -1,6 +1,6 @@
 import { makeImmutable } from '../../utils';
 
-function fetchProperties() {
+function getProperties() {
   return fetch(
     '/api/v1/properties',
     {
@@ -10,7 +10,7 @@ function fetchProperties() {
   ).then(makeImmutable);
 }
 
-function fetchProperty(id) {
+function getProperty(id) {
   return fetch(
     `/api/v1/properties/${id}`,
     {
@@ -20,4 +20,15 @@ function fetchProperty(id) {
   ).then(makeImmutable);
 }
 
-export default { fetchProperties, fetchProperty };
+function postProperty() {
+  return fetch(
+    '/api/v1/properties',
+    {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      method: 'post',
+    },
+  ).then(makeImmutable);
+}
+
+export default { getProperties, getProperty, postProperty };

@@ -1,34 +1,35 @@
 import { propertiesConstants } from '../constants';
 import { propertiesService } from '../services';
-import { getActions } from '../../utils';
+import { createAction } from '../../utils';
 
-function fetchProperties(params) {
-  const { start, success, failure } = getActions('FETCH_PROPERTIES', propertiesConstants);
-
-  return (dispatch) => {
-    dispatch(start);
-    propertiesService
-      .fetchProperties(params)
-      .then(data => dispatch(success(data)))
-      .catch(err => dispatch(failure(err)));
-  };
+function getProperties(params) {
+  return createAction({
+    action: 'GET_PROPERTIES',
+    constants: propertiesConstants,
+    service: propertiesService.getProperties(params),
+  });
 }
 
-function fetchProperty(id) {
-  const { start, success, failure } = getActions('FETCH_PROPERTY', propertiesConstants);
+function getProperty(params) {
+  return createAction({
+    action: 'GET_PROPERTY',
+    constants: propertiesConstants,
+    service: propertiesService.getProperty(params),
+  });
+}
 
-  return (dispatch) => {
-    dispatch(start);
-    propertiesService
-      .fetchProperty(id)
-      .then(data => dispatch(success(data)))
-      .catch(err => dispatch(failure(err)));
-  };
+function postProperty() {
+  return createAction({
+    action: 'POST_PROPERTY',
+    constants: propertiesConstants,
+    service: propertiesService.postProperty(),
+  });
 }
 
 const propertiesActions = {
-  fetchProperties,
-  fetchProperty,
+  getProperties,
+  getProperty,
+  postProperty,
 };
 
 export default propertiesActions;
