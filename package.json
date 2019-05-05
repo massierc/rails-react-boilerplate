@@ -2,9 +2,13 @@
   "name": "rails-react-boilerplate",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@rails/webpacker": "4.0.2",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "classnames": "^2.2.6",
+    "core-js": "3",
     "css-modules": "^0.3.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
@@ -13,17 +17,16 @@
     "eslint-plugin-react": "^7.12.4",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "stylelint": "^9.10.1"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "stylelint-config-standard": "^18.2.0",
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "^3.3.1",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
